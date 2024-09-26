@@ -93,9 +93,9 @@ let ucetambolunenler = [],
   enkucuk = sayilar[0],
   enbuyuk = sayilar[0],
   ucebolunenlerintoplami,
-  besyuzdenkucuksayilar,
-  siralisayilar,
-  tekraredensayilar;
+  besyuzdenkucuksayilar = [],
+  siralisayilar = [],
+  tekraredensayilar = [];
 
 // 3a çözümü
 
@@ -118,15 +118,29 @@ ucebolunenlerintoplami = sayilar.reduce((toplam, sayi) => sayi % 3 === 0 ? topla
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter((sayi) => sayi < 500);
 
 // 3e çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar.sort((a,b) => a-b)
+siralisayilar.push(...besyuzdenkucuksayilar);
 
 // 3f çözümü
 
-/* kodlar buraya */
+const depo = {};
+
+for (let tekrar of sayilar) {
+  if (depo[tekrar] === undefined) {
+      depo[tekrar] = 1;
+  } else {
+      depo[tekrar]++;
+  }
+}
+for (let tekrar in depo) {
+  if (depo[tekrar] > 1) {
+    tekraredensayilar.push(`${tekrar} sayısı ${depo[tekrar]} kere tekrar edilmiştir`);
+  }
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
